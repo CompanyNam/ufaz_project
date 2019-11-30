@@ -9,18 +9,31 @@
       <h2>CHALABI</h2><p>Technology Science</p>
     </div>
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-       
-       
 
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="home.php">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
+        <a class="nav-link" href="transform.php">Add transaction</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        <a class="nav-link " href="data_see.php" tabindex="-1" >List of transactions</a>
       </li>
+   
+    
+
+      <?php
+      session_start();
+      if(empty($_SESSION["authenticated"]) || $_SESSION["authenticated"] != 'true') {
+     echo'<li class="nav-item">
+        <a class="nav-link " href="loginform.php" tabindex="-1" >Login</a>
+      </li>';
+   }else{
+     echo'<li class="nav-item">
+        <a class="nav-link " href="logout.php" tabindex="-1" >Logout</a>
+      </li>';
+   }
+   ?>
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
